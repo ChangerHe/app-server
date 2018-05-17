@@ -1,0 +1,10 @@
+{
+    "username": "root",
+    "password": "Chang6832076.",
+    "sequelize": {
+        "host": "111.230.5.248",
+        "timezone": "+08:00",
+        "paranoid": true,
+        "dialect": "mysql"
+    }
+}
