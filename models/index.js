@@ -19,18 +19,21 @@ fs.readdirSync(__dirname)
         // 引入这个数据模型
         const model = sequelize.import(path.join(__dirname, file));
         // 将模型名对应模型值挂载到db上
+        console.log(model.name, 'model.name')
         db[model.name] = model;
     });
 
-// // 找到所有的db的key
-// Object.keys(db).forEach((modelName) => {
-//     if (db[modelName].associate) {
-//         // 外键关联
-//         db[modelName].associate(db);
-//     }
-// });
+// 找到所有的db的key
+Object.keys(db).forEach((modelName) => {
+    if (db[modelName].associate) {
+        // 外键关联
+        db[modelName].associate(db);
+    }
+});
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+console.log(db.User , 'db111111111111111111111111')
 
 module.exports = db;
