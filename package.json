@@ -6,6 +6,7 @@
     "start": "nodemon  --watch routes --watch app.js --watch models ./bin/www"
   },
   "dependencies": {
+    "config": "^1.30.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "cross-env": "^5.1.5",
@@ -17,7 +18,9 @@
     "moment": "^2.22.1",
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
     "sequelize": "^4.37.7",
+    "sequelize-fixtures": "^0.7.0",
     "sha1": "^1.1.1"
   },
   "devDependencies": {
