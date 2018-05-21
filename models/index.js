@@ -15,11 +15,9 @@ fs.readdirSync(__dirname)
     .filter(file => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
     // 循环
     .forEach(file => {
-        console.log(__dirname, '__dirname111111111111111111111111111111111', file, 'file1111111111111111111111111111111111')
         // 引入这个数据模型
         const model = sequelize.import(path.join(__dirname, file));
         // 将模型名对应模型值挂载到db上
-        console.log(model.name, 'model.name')
         db[model.name] = model;
     });
 
@@ -33,7 +31,5 @@ Object.keys(db).forEach((modelName) => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
-console.log(db.User , 'db111111111111111111111111')
 
 module.exports = db;
