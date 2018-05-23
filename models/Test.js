@@ -3,13 +3,17 @@ module.exports = (sequelize, Sequelize) => {
         id: {
             type: Sequelize.UUID,
             defaultValue: Sequelize.UUIDV4,
-            unique: 'un_id'
+            unique: 'un_id',
+            comment: 'id comment',
+            unique: true,
+            primaryKey: true,
         },
         // 如果未赋值,则自动设置值为 TRUE
         flag: {
             type: Sequelize.BOOLEAN,
             allowNull: false,
-            defaultValue: true
+            defaultValue: true,
+            comment: 'flag comment'
         },
 
         // 设置默认时间为当前时间
@@ -35,32 +39,9 @@ module.exports = (sequelize, Sequelize) => {
             unique: 'compositeIndex'
         },
 
-        // unique属性用来创建一个唯一约束。
-        someUnique: {
-            type: Sequelize.STRING,
-            unique: true
-        },
-
-        // indexes: {unique: true, fields: ['someUnique']},
-
-        // // // 这与在模型选项中创建索引完全相同。
-        // {
-        //     anoUnique: {
-        //         type: Sequelize.STRING
-        //     }
-        // }, {
-        //     indexes: [
-        //         {
-        //             unique: true,
-        //             fields: ['someUnique']
-        //         }
-        //     ]
-        // },
-
         // primaryKey用于定义主键。
         identifier: {
-            type: Sequelize.STRING,
-            primaryKey: true,
+            type: Sequelize.STRING
         },
 
         // autoIncrement可用于创建自增的整数列
@@ -72,7 +53,7 @@ module.exports = (sequelize, Sequelize) => {
 
         // 你可以通过'field'属性指定自定义字段名称：
         fieldWithUnderscores: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(125),
             field: 'field_with_underscores'
         },
 
@@ -90,9 +71,20 @@ module.exports = (sequelize, Sequelize) => {
                 // // 这声明什么时候检查外键约束。 仅限PostgreSQL。 deferrable:
                 // Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }
+        },
+
+        enumTest: {
+            type: Sequelize.ENUM,
+            values: ['0', '1']
+        },
+
+        enumTest1: {
+            type: Sequelize.ENUM,
+            values: ['active', 'pedding', 'delete']
         }
     }, {
-        freezeTableName: true // Model tableName will be the same as the model name
+        freezeTableName: true, // Model tableName will be the same as the model name
+        indexes: [{unique: true, fields: ['uniqueOne']}]
     });
     return Test;
 };
