@@ -2,7 +2,7 @@
  * @Author: ChangerHe 
  * @Date: 2018-05-17 23:26:21 
  * @Last Modified by: ChangerHe
- * @Last Modified time: 2018-05-20 18:27:32
+ * @Last Modified time: 2018-05-21 13:13:08
  */
 
 var express = require('express');
@@ -10,7 +10,8 @@ var {User} = require('../models/index')
 var router = express.Router();
 
 router.get('/', async (req, res, next) => {
-  const user = await User.findOne()
+  // const user = await User.findOne()
+  const user = await User.findById('4b67b598-a5f9-4401-a04a-31505a2dccc2')
   console.log(user, 'user')
   res.json(user)
 });

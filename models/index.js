@@ -1,3 +1,9 @@
+/*
+ * @Author: ChangerHe 
+ * @Date: 2018-05-21 13:03:08 
+ * @Last Modified by:   ChangerHe 
+ * @Last Modified time: 2018-05-21 13:03:08 
+ */
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
