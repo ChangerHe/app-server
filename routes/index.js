@@ -6,14 +6,15 @@
  */
 
 var express = require('express');
-var {User} = require('../models/index')
+var {User, Test} = require('../models/index')
 var router = express.Router();
 
 router.get('/', async (req, res, next) => {
   // const user = await User.findOne()
   const user = await User.findById('4b67b598-a5f9-4401-a04a-31505a2dccc2')
-  console.log(user, 'user')
-  res.json(user)
+  const test = await Test.findOne()
+  console.log(user, 'user', test, 'test')
+  res.json(test)
 });
 
 router.get('/home', function(req, res, next) {
